@@ -190,7 +190,7 @@ begin
         counter <= "000000";
       elsif clk_div'event and clk_div ='1' then
         
-         if(roll ='1')then 
+         if(roll ='1' and not(current_state = win1 or current_state = lose1) )then 
             if (counter = 63) then
                 counter <= (others => '0');
             else 
