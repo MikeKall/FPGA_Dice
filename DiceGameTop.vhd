@@ -27,7 +27,7 @@ entity dicegametop is
 Port ( clk : in STD_LOGIC;
            newgame : in STD_LOGIC;
            roll : in STD_LOGIC;
-           output, output2 : out UNSIGNED (5 downto 0);
+           output : out UNSIGNED (5 downto 0);
            win : out STD_LOGIC;
            lose : out STD_LOGIC);
 end dicegametop;
@@ -217,68 +217,63 @@ when rolling1 =>
      lose <='0';
      win <='0';
      output <= dice1tmp&dice2tmp;
-     output2 <= savedNum;
 when stoprolling1 =>
     lose <='0';
     win <='0'; 
     output <= dice1tmp&dice2tmp;
-    output2 <= savedNum;
 when result1 =>
     lose <='0';
     win <='0'; 
     output <= dice1(2 downto 0)&dice2(2 downto 0);
-    output2 <= savedNum;
 when phase2 =>
     win<= '0';
     lose <= '0';
     output <= diceSum;--dice1+dice2;
-    output2 <= savedNum;
     
 when win1 =>
     win<='1';
     lose <= '0';
     output <= diceSum; --dice1+dice2;
-    output2 <= savedNum;
 when lose1 => 
     lose<='1';
     win <= '0';
     output <=  diceSum;--dice1+dice2;
-    output2 <= savedNum;
+
 when rolling2 =>
      lose <='0';
      win <='0';
      output <= dice1tmp&dice2tmp;
-     output2 <= savedNum;
+
 when stoprolling2 =>
     lose <='0';
     win <='0'; 
     output <= dice1tmp&dice2tmp;
-    output2 <= savedNum;
+
 when result2 =>
     lose <='0';
     win <='0'; 
     output <= dice1(2 downto 0)&dice2(2 downto 0);
-    output2 <= savedNum;
+
 when save =>
     lose <='0';
     win <='0'; 
     output <= dice1(2 downto 0)&dice2(2 downto 0);
-    output2 <= savedNum;
+
 when phase3 =>
     win<= '0';
     lose <= '0';
     output <= diceSum;--dice1+dice2;
-    output2 <= savedNum;
+
 when win2 =>
     win<='1';
     lose <= '0';
     output <=  diceSum;--dice1+dice2;
-    output2 <= savedNum;
+
 when lose2 => 
     lose<='1';
     win <= '0';
     output <=  diceSum;--dice1+dice2;
-    output2 <= savedNum;
+
 end case;
 end process;
 
