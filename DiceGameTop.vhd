@@ -24,7 +24,7 @@ signal next_state : state_type;
 signal savedNum, counter, diceSum :UNSIGNED (5 downto 0):="000000";
 signal counter_roll, counter_result  : UNSIGNED (3 downto 0) := "1000";
 signal enable_counter_roll, enable_counter_result, save_it : STD_LOGIC;
-signal dice1, dice2 : UNSIGNED (5 downto 0); --eixame thema me thn prosthesi(3bits + 3 bits = 3 bits => output(6bits)ERROR), gia auto ta zaria einai 6 bits(xreisimopoioume pali mono ta 3bits  
+signal dice1, dice2 : UNSIGNED (5 downto 0); --thema me thn prosthesi(3bits + 3 bits = 3 bits => output(6bits)ERROR), gia auto ta zaria einai 6 bits(xreisimopoioume pali omws mono ta 3bits)
 signal dice1tmp, dice2tmp : UNSIGNED (2 downto 0);
 begin
 
@@ -34,8 +34,8 @@ freq_div_unit:
 					CLK_OUTPUT => 2)		    --Clock output frequency: 2Hz
 	port map(clk_in  => clk,
 				clk_out => clk_div);
-lfsr_unit:
-	entity work.lfsr(Behavioral)
+random_bit_generator_unit:
+	entity work.random_bit_generator(Behavioral)
 	port map( clk => clk,
 	          dice1 => dice1tmp, 
 	          dice2 =>dice2tmp);
@@ -188,14 +188,17 @@ when rolling1 => --Displays the changes of the values of the dice
      lose <='0';
      win <='0';
      output <= dice1tmp&dice2tmp;
+     
 when stoprolling1 => --Displays the changes of the values of the dice for 4 more seconds
     lose <='0';
     win <='0'; 
     output <= dice1tmp&dice2tmp;
+
 when result1 => --Displays the results
     lose <='0';
     win <='0'; 
     output <= dice1(2 downto 0)&dice2(2 downto 0);
+
 when phase2 => -- Displays the sum of the dice
     win<= '0';
     lose <= '0';
