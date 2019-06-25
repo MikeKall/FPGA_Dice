@@ -2,13 +2,13 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity lfsr is
+entity random_bit_generator is
     Port ( clk : in STD_LOGIC;
            dice1 : out UNSIGNED (2 downto 0);
            dice2 : out UNSIGNED (2 downto 0));
-end lfsr;
+end random_bit_generator;
 
-architecture Behavioral of lfsr is
+architecture Behavioral of random_bit_generator is
   signal count           :UNSIGNED (15 downto 0);
   signal out1, out2, out3, out4, out5, out6 : STD_LOGIC;
   signal clk_div : STD_LOGIC;
