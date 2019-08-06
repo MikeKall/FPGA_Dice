@@ -1,1 +1,1 @@
-# VHDL_Dices
+# VHDL_Dice
