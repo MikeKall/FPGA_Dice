@@ -1,5 +1,5 @@
 # VHDL_Dice
-This project is a dice game for Zybo-Z7 boards.
+This project is a dice game for the Zybo-Z7 boards.
 
 1) The user can "roll" the two dice by pressing a specific button on the board. While pressing the button the dice are rolling (LEDs on the board cycling through random binary numebers) and we can see the binary values changing every second.
 2) When the user releases the button the dice stop "rolling" after 3 seconds.
